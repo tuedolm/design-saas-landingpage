@@ -64,9 +64,9 @@ export default function Features() {
                                         alt="Avatar4"
                                         className="absolute size-full rounded-full opacity-0 group-hover:opacity-100 transition"
                                     />
-                                    {Array.from({ length: 3 }).map(
+                                    {Array.from({ length: 3 }).map (
                                         (_, index) => (
-                                            <span className="size-1.5 rounded-full bg-white key={index} inline-flex"></span>
+                                            <span key={index} className="size-1.5 rounded-full bg-white key={index} inline-flex"></span>
                                         )
                                     )}
                                 </div>
@@ -117,8 +117,8 @@ export default function Features() {
                     </FeatureCard>
                 </div>
                 <div className="mt-8 flex flex-wrap gap-3 justify-center">
-                    {features.map((feature) => (
-                        <div className="bg-neutral-900 border border-white/10 inline-flex px-3 md:px-5 py-1.5 md:py-2 rounded-2xl gap-3 items-center hover:scale-105 transition duration-500 group">
+                    {features.map((feature, index) => (
+                        <div key={index} className="bg-neutral-900 border border-white/10 inline-flex px-3 md:px-5 py-1.5 md:py-2 rounded-2xl gap-3 items-center hover:scale-105 transition duration-500 group">
                             <span className="bg-lime-400 text-neutral-950 size-5 rounded-full inline-flex items-center justify-center text-xl group-hover:rotate-45 transition duration-500">
                                 &#10038;
                             </span>
