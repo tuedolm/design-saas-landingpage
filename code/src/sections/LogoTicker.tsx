@@ -1,4 +1,8 @@
+'use client';
+
+import { Fragment } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import quantumLogo from "@/assets/images/quantum.svg";
 import acmeLogo from "@/assets/images/acme-corp.svg";
 import echoValleyLogo from "@/assets/images/echo-valley.svg";
@@ -23,17 +27,33 @@ export default function LogoTicker() {
     return (
         <section className="py-24 overflow-x-clip">
             <div className="container">
-                <h3 className="text-center text-white/50 text-xl">Already chosen by these market leaders</h3>
-                <div className="overflow-hidden mt-12 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-                    <div className="flex gap-24 pr-24">
-                        {logos.map((logo, index) => (
-                            <Image
-                                key={logo.name}
-                                src={logo.image}
-                                alt={logo.name}
-                            />
+                <h3 className="text-center text-white/50 text-xl">
+                    Already chosen by these market leaders
+                </h3>
+                <div className="flex overflow-hidden mt-12 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                    <motion.div
+                        animate={{ 
+                            x: "-50%",
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 30,
+                            ease: "linear",
+                        }}
+                        className="flex flex-none gap-24 pr-24"
+                    >
+                        {Array.from({ length: 2 }).map((_, index) => (
+                            <Fragment key={index}>
+                                {logos.map((logo) => (
+                                    <Image
+                                        key={logo.name}
+                                        src={logo.image}
+                                        alt={logo.name}
+                                    />
+                                ))}
+                            </Fragment>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
